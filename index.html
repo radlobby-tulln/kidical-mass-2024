@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="src/leaflet.awesome-markers.css">
+    <!-- ... -->
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+    <script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <script src="src/leaflet.awesome-markers.js"></script>
+    <div id="map" style="width: 1200px; height: 800px;">test</div>
+   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var gpx = '/kidical_mass_ride_tulln_2024.gpx'; // * Make sure this path is correct!
+    var redMarker = L.AwesomeMarkers.icon({
+    icon: 'pause',
+    markerColor: 'red',
+    prefix: 'ion'
+  });
+    new L.GPX(gpx, {
+      async: true,
+      parseElements: ['track', 'route'],
+      polyline_options: {
+        color: 'blue',
+        opacity: 0.75,
+        weight: 8,
+        lineCap: 'round',
+        lineJoin: 'round',
+        smoothFactor: 3
+      }
+    }).on('loaded', function(e) {
+      map.fitBounds(e.target.getBounds());
+      var layers = e.target.getLayers()[0].getLayers(); // Get all layers
+    layers.forEach(function(layer) {
+      console.log('Layer:', layer);
+      if (layer instanceof L.Polyline && !(layer instanceof L.Polygon)) {
+        // This ensures we're working with polylines but not polygons
+        console.log('Applying decorator to polyline');
+        L.polylineDecorator(layer, {
+          patterns: [
+            // Defines the arrow pattern
+            {repeat: '8%', symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {stroke: true, color: 'red'}}) }
+          ]
+        }).addTo(map);
+      }});
+  
+    }).on('error', function(e) {
+      console.error('Error loading GPX file:', e);
+    }).addTo(map);
+    L.marker([48.32871240256559, 16.054309955205063], {icon: redMarker}).addTo(map);
+    L.marker([48.32070840023415, 16.056155315022924], {icon: redMarker}).addTo(map);
+  });
+</script> 
+  </body>
+</html>
