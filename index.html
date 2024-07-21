@@ -11,8 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
     <script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="src/style.css">
     <script src="src/leaflet.awesome-markers.js"></script>
-    <div id="map" style="width: 1200px; height: 800px;">test</div>
+    <div id="container">
+        <div id="description">
+            <h2>Event Title</h2>
+            <p>This is a description of the event. It can include details like the event's purpose, schedule, and any other relevant information.</p>
+            <div id="scroll-down-arrow">&#x2193;</div> <!-- Unicode down arrow -->
+        </div>
+    <div id="map">
+      <div id="scroll-up-arrow">&#x2191;</div> <!-- Unicode up arrow -->
+    </div>
+    </div>
    <script>
   document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded');
@@ -60,6 +70,15 @@
     L.marker([48.32871240256559, 16.054309955205063], {icon: redMarker}).addTo(map);
     L.marker([48.32070840023415, 16.056155315022924], {icon: redMarker}).addTo(map);
   });
-</script> 
+  
+    document.getElementById('scroll-down-arrow').addEventListener('click', function() {
+      console.log('Scrolling to map');
+        document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('scroll-up-arrow').addEventListener('click', function() {
+      console.log('Scrolling to description');
+        document.getElementById('description').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script> 
   </body>
 </html>

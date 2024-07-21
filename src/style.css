@@ -1,0 +1,61 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    /*height: 100vh;*/
+}
+
+#map, #description {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#map {
+    background-color: #ddd; /* Placeholder for the map */
+}
+
+#description {
+    background-color: #eee;
+    position: relative;
+}
+
+/*@media (max-width: 600px) {
+    #container {
+        flex-direction: column;
+    }
+
+    #map, #description {
+        height: 50vh; 
+    }
+}*/
+
+#scroll-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+}
+
+#scroll-up-arrow {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000;
+    color: red; /* Adjust color as needed for visibility */
+}
