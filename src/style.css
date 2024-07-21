@@ -44,7 +44,7 @@ body, html {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 24px;
+    font-size: 48px;
     cursor: pointer;
     color: red;
 }
@@ -54,7 +54,7 @@ body, html {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 24px;
+    font-size: 48px;
     cursor: pointer;
     z-index: 10000;
     color: red; /* Adjust color as needed for visibility */
