@@ -41,7 +41,7 @@ body, html {
 
 #scroll-down-arrow {
     position: absolute;
-    bottom: 20px;
+    bottom: 5vh;
     left: 50%;
     transform: translateX(-50%);
     font-size: 48px;
@@ -51,11 +51,20 @@ body, html {
 
 #scroll-up-arrow {
     position: absolute;
-    top: 20px;
+    top: 5vh;
     left: 50%;
     transform: translateX(-50%);
     font-size: 48px;
     cursor: pointer;
     z-index: 10000;
     color: red; /* Adjust color as needed for visibility */
+}
+
+@media (max-width: 600px) {
+    #scroll-down-arrow {
+        bottom: 10vh; /* Adjust as needed for smaller screens */
+    }
+    #scroll-up-arrow {
+        top: 10vh; /* Adjust as needed for smaller screens */
+    }
 }
