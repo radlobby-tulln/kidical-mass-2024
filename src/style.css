@@ -62,7 +62,7 @@ body, html {
 
 @media (max-width: 600px) {
     #scroll-down-arrow {
-        bottom: 20h; /* Adjust as needed for smaller screens */
+        bottom: 15vh; /* Adjust as needed for smaller screens */
     }
     #scroll-up-arrow {
         top: 8vh; /* Adjust as needed for smaller screens */
