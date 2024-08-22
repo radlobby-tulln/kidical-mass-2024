@@ -34,7 +34,6 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    var gpx = 'https://raw.githubusercontent.com/radlobby-tulln/kidical-mass-2024/main/kidical_mass_ride_tulln_2024_v2.gpx'; // * Make sure this path is correct!
     var redMarker = L.AwesomeMarkers.icon({
     icon: 'pause',
     markerColor: 'red',
@@ -72,7 +71,8 @@
     }).addTo(map);
     var marker_1 = L.marker([48.32871240256559, 16.054309955205063], {icon: redMarker}).addTo(map);
     L.marker([48.32070840023415, 16.056155315022924], {icon: redMarker}).addTo(map);
-    marker_1.bindPopup("<b>Start</b><br>Start of the event");
+    L.marker([48.3279912, 16.0588246], {icon: redMarker}).addTo(map);
+    L.marker([48.3312155, 16.0521442], {icon: redMarker}).addTo(map);
   });
   
     document.getElementById('scroll-down-arrow').addEventListener('click', function() {
