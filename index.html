@@ -33,6 +33,8 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+    
+    var gpx = 'https://raw.githubusercontent.com/radlobby-tulln/kidical-mass-2024/main/kidical_mass_ride_tulln_2024_v2.gpx'; // * Make sure this path is correct!
 
     var redMarker = L.AwesomeMarkers.icon({
     icon: 'pause',
