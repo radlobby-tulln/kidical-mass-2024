@@ -125,3 +125,20 @@ li::marker {
 .small-text {
     font-size: 0.8em;
 }
+
+.cancel-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
